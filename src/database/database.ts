@@ -2,7 +2,7 @@ import { IBook } from "../interfaces/books.interface";
 
 export const booksDatabase: IBook[] = [];
 
-let id = 1;
+let id = 0;
 
 export const generateBookId = () => {
   id++;

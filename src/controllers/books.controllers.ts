@@ -37,6 +37,7 @@ export class BooksControllers implements IBooksControllers {
 
   update(req: Request, res: Response): Response {
     const booksServices = new BooksServices();
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
     const update = booksServices.update(req.body, req.params.id);
 

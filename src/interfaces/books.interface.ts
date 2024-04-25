@@ -7,5 +7,5 @@ export interface IBook {
   updatedAt: Date;
 }
 
-export type TBookBody = Pick<IBook, "name" | "pages" | "category">;
+export type TBookBody = Omit<IBook, "id" | "createdAt" | "updateAt">;
 export type TBookPartial = Partial<TBookBody>;
