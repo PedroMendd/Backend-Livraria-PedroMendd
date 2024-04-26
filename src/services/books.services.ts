@@ -49,15 +49,12 @@ export class BooksServices implements IBooksServices {
   }
 
   update(body: Partial<TBookBody>, id: string): IBook {
-    console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
     const currentBook = booksDatabase.find(
       (book) => Number(book.id) === Number(id)
     ) as IBook;
-    console.log(body, currentBook);
     const date = new Date();
 
     const newBook = { ...currentBook, ...body, updatedAt: date };
-    console.log(newBook);
     const index = booksDatabase.findIndex((book) => book.id === Number(id));
 
     booksDatabase.splice(index, 1, newBook);
