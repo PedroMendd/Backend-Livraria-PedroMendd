@@ -29,17 +29,12 @@ export class BooksServices implements IBooksServices {
 
   getMany(search?: string, name?: string): IBook[] {
     return booksDatabase.filter((book) => {
-      const searchRule = search
-        ? book.name.toLowerCase().includes(search.toLowerCase()) ||
-          book.category?.toLowerCase().includes(search.toLowerCase()) ||
-          false
-        : true;
-
-      const nameRule = name
-        ? book.name.toLowerCase() === name.toLowerCase()
-        : true;
-
-      return searchRule && nameRule;
+      if (!search) return true;
+      const searchTerm = search.toLowerCase();
+      return (
+        book.name.toLowerCase().includes(searchTerm) ||
+        book.category?.toLowerCase().includes(searchTerm)
+      );
     });
   }
 
